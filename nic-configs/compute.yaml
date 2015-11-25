@@ -102,7 +102,7 @@ resources:
                 -
                   type: interface
                   name: eno52
-            # No bond1, so disable nic3 + nic4
+            # No bond1, so disable nic5 + nic6
             -
               type: interface
               name: eno53
