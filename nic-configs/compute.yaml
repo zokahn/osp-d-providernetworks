@@ -78,7 +78,7 @@ resources:
           network_config:
             -
               type: interface
-              name: nic1
+              name: eno49
               use_dhcp: false
               dns_servers: {get_param: DnsServers}
               addresses:
@@ -94,7 +94,7 @@ resources:
                   next_hop: {get_param: EC2MetadataIp}
             -
               type: interface
-              name: nic2
+              name: eno50
               use_dhcp: false
             -
               type: ovs_bond
@@ -106,11 +106,11 @@ resources:
               members:
                 -
                   type: interface
-                  name: nic3
+                  name: eno51
                   primary: true
                 -
                   type: interface
-                  name: nic4
+                  name: eno52
             -
               type: ovs_bridge
               name: {get_input: bridge_name}
@@ -129,11 +129,11 @@ resources:
                   members:
                     -
                       type: interface
-                      name: nic5
+                      name: eno53
                       primary: true
                     -
                       type: interface
-                      name: nic6
+                      name: eno54
             -
               type: ovs_bridge
               name: tenantvlan
@@ -145,11 +145,11 @@ resources:
                   members:
                     -
                       type: interface
-                      name: nic7
+                      name: eno55
                       primary: true
                     -
                       type: interface
-                      name: nic8
+                      name: eno56
             
 outputs:
   OS::stack_id:
