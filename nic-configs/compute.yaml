@@ -90,7 +90,7 @@ resources:
             -
               type: ovs_bond
               name: bond0
-              ovs_options: {get_param: BondInterfaceOvsOptions}
+              ovs_options: "bond_mode=balance-slb"
               addresses:
                 -
                   ip_netmask: {get_param: InternalApiIpSubnet}
@@ -118,7 +118,7 @@ resources:
                 -
                   type: ovs_bond
                   name: bond2
-                  ovs_options: {get_param: BondInterfaceOvsOptions}
+                  ovs_options: "bond_mode=balance-slb"
                   members:
                     -
                       type: interface
