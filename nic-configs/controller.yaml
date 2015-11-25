@@ -98,7 +98,7 @@ resources:
               use_dhcp: false
             -
               type: ovs_bridge
-              name: {get_input: bridge_name}
+              name: internalapi
               members:
                 -
                   type: ovs_bond
