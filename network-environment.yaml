@@ -23,23 +23,23 @@ resource_registry:
 
 parameter_defaults:
   # Internal API used for private OpenStack Traffic
-  InternalApiNetCidr: 10.239.144.0/24
-  InternalApiAllocationPools: [{'start': '10.239.144.10', 'end': '10.239.144.200'}]
+  InternalApiNetCidr: .144.0/24
+  InternalApiAllocationPools: [{'start': '.144.10', 'end': '.144.200'}]
 
   # External Networking Access - Public API Access
-  ExternalNetCidr: 10.239.148.0/24
+  ExternalNetCidr: .148.0/24
   # Leave room for floating IPs in the External allocation pool (if required)
-  ExternalAllocationPools:[{'start': '10.239.148.10', 'end': '10.239.148.200'}]
+  ExternalAllocationPools:[{'start': '.148.10', 'end': '.148.200'}]
   #Set to the router gateway on the external network
-  ExternalInterfaceDefaultRoute: 10.239.148.246
+  ExternalInterfaceDefaultRoute: .148.246
 
   # Add in configuration for the Control Plane
   ControlPlaneSubnetCidr: "24"
   # Default gateway router on the provisioning network
-  ControlPlaneDefaultRoute: 10.239.152.1
+  ControlPlaneDefaultRoute: .152.1
   # The IP address of the Undercloud
-  EC2MetadataIp: 10.239.152.1
-  DnsServers: ['10.13.15.200', '10.13.55.200']
+  EC2MetadataIp: .152.1
+  DnsServers: ['.15.200', '.55.200']
 
   # The bonding mode to use for the bonds
   BondInterfaceOvsOptions: "bond_mode=balance-slb"
