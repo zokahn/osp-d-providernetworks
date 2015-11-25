@@ -97,20 +97,24 @@ resources:
               name: eno50
               use_dhcp: false
             -
-              type: ovs_bond
-              name: bond0
-              ovs_options: "bond_mode=balance-slb"
-              addresses:
-                -
-                  ip_netmask: {get_param: InternalApiIpSubnet}
+              type: ovs_bridge
+              name: {get_input: bridge_name}
               members:
                 -
-                  type: interface
-                  name: eno51
-                  primary: true
-                -
-                  type: interface
-                  name: eno52
+                  type: ovs_bond
+                  name: bond0
+                  ovs_options: "bond_mode=balance-slb"
+                  addresses:
+                    -
+                      ip_netmask: {get_param: InternalApiIpSubnet}
+                  members:
+                    -
+                      type: interface
+                      name: eno51
+                      primary: true
+                    -
+                      type: interface
+                      name: eno52
             -
               type: ovs_bridge
               name: {get_input: bridge_name}
