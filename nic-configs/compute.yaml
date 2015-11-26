@@ -90,14 +90,14 @@ resources:
             -
               type: ovs_bridge
               name: internalapi
+              addresses:
+                -
+                  ip_netmask: {get_param: InternalApiIpSubnet}
               members:
                 -
                   type: ovs_bond
                   name: bond0
                   ovs_options: "bond_mode=balance-slb"
-                  addresses:
-                    -
-                      ip_netmask: {get_param: InternalApiIpSubnet}
                   members:
                     -
                       type: interface
