@@ -36,7 +36,7 @@ parameter_defaults:
   # Add in configuration for the Control Plane
   ControlPlaneSubnetCidr: "24"
   # Default gateway router on the provisioning network
-  ControlPlaneDefaultRoute: .152.1
+  ControlPlaneDefaultRoute: .152.246
   # The IP address of the Undercloud
   EC2MetadataIp: .152.1
   DnsServers: ['.15.200', '.55.200']
