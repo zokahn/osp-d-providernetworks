@@ -65,8 +65,8 @@ resources:
         os_net_config:
           network_config:
             -
-              type: interface
-              name: eno49
+              type: ovs_bridge
+              name: management
               use_dhcp: false
               dns_servers: {get_param: DnsServers}
               addresses:
@@ -83,10 +83,20 @@ resources:
                 -
                   default: true
                   next_hop: {get_param: ControlPlaneDefaultRoute}
-            -
-              type: interface
-              name: eno50
-              use_dhcp: false
+              members:
+                -
+                  type: ovs_bond
+                  name: bond3
+                  ovs_options: "bond_mode=balance-slb"
+                  members:
+                    -
+                      type: interface
+                      name: eno49
+                      primary: true
+                    -
+                      type: interface
+                      name: eno50
+                      use_dhcp: false
             -
               type: ovs_bridge
               name: internalapi
@@ -106,7 +116,6 @@ resources:
                     -
                       type: interface
                       name: eno52
-            -
             # No bond1, so disable nic5 + nic6
             -
               type: interface
