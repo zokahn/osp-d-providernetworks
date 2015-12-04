@@ -578,17 +578,18 @@ parameters:
       MongoDbNetwork: internal_api
       CinderApiNetwork: internal_api
       CinderIscsiNetwork: storage
-      GlanceApiNetwork: storage
+      GlanceApiNetwork: internal_api
       GlanceRegistryNetwork: internal_api
-      KeystoneAdminApiNetwork: ctlplane # allows undercloud to config endpoints
+#      KeystoneAdminApiNetwork: ctlplane # allows undercloud to config endpoints
+      KeystoneAdminApiNetwork: internal_api
       KeystonePublicApiNetwork: internal_api
       NeutronApiNetwork: internal_api
       HeatApiNetwork: internal_api
       NovaApiNetwork: internal_api
       NovaMetadataNetwork: internal_api
       NovaVncProxyNetwork: internal_api
-      SwiftMgmtNetwork: storage_mgmt
-      SwiftProxyNetwork: storage
+      SwiftMgmtNetwork: internal_api
+      SwiftProxyNetwork: internal_api
       HorizonNetwork: internal_api
       MemcachedNetwork: internal_api
       RabbitMqNetwork: internal_api
