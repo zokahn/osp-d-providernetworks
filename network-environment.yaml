@@ -43,3 +43,19 @@ parameter_defaults:
 
   # The bonding mode to use for the bonds
   BondInterfaceOvsOptions: "bond_mode=balance-tcp lacp=active other-config:lacp-fallback-ab=true"
+
+parameters:
+  #Disable internal Swift
+  EnableSwiftStorage: false
+  
+  #enable glance nfs
+  GlanceBackend: file
+  GlanceFilePcmkDevice: 'foo.bar.baz:/glance'
+  GlanceFilePcmkManage: true
+  GlanceFilePcmkOptions: 'vers=3,context=system_u:object_r:glance_var_lib_t:s0'
+
+  #enable cinder nfs
+  CinderEnableIscsiBackend: false
+  CinderEnableNfsBackend: true
+  CinderNfsMountOptions: 'retry=1,vers=3'
+  CinderNfsServers: 'foo.bar.baz/cinder'
